@@ -13,5 +13,13 @@
       <button type="submit">Enviar</button>
     </form>
     <div id="greeting"></div>
+    <script>
+      async function fetchGreeting() {
+        const response = await fetch('/.netlify/functions/greeting?name=Melissa');
+        const greeting = await response.text();
+        document.getElementById('greeting').textContent = greeting;
+      }
+      fetchGreeting();
+    </script>
   </body>
 </html>
